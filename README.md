@@ -85,14 +85,3 @@ python3 -m unittest discover -s tests -v
 Tests cover persistent and closing connections, HTTP/1.0, HEAD, status codes,
 fragmented requests, pipelining, body boundaries, malformed input, timeouts,
 handler failures, and simultaneous clients while another handler is blocked.
-
-## Deliberate limits
-
-This is a learning and collaboration skeleton, not a production HTTP stack.
-It supports origin-form targets (`/path`) and Content-Length request bodies.
-Chunked transfer encoding, informational responses (including `100 Continue`),
-TLS, upgrades, static file serving, and HTTP/2 are left for later contributors.
-Timeouts apply to individual blocking socket operations, not a total request
-deadline; a slow peer can retain a client slot. Shutdown wakes network operations,
-but custom handlers must finish before shutdown completes. The server is intended
-for local experiments and trusted development networks.
